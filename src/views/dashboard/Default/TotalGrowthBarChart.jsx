@@ -1,42 +1,42 @@
-import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 // material-ui
-import { useTheme } from "@mui/material/styles";
-import { Grid, MenuItem, TextField, Typography } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import { Grid, MenuItem, TextField, Typography } from '@mui/material';
 
 // third-party
-import ApexCharts from "apexcharts";
-import Chart from "react-apexcharts";
+import ApexCharts from 'apexcharts';
+import Chart from 'react-apexcharts';
 
 // project imports
-import SkeletonTotalGrowthBarChart from "ui-component/cards/Skeleton/TotalGrowthBarChart";
-import MainCard from "ui-component/cards/MainCard";
-import { gridSpacing } from "store/constant";
+import { gridSpacing } from '../../../store/constant';
+import SkeletonTotalGrowthBarChart from '../../../ui-component/cards/Skeleton/TotalGrowthBarChart';
+import MainCard from '../../../ui-component/cards/MainCard';
 
 // chart data
-import chartData from "./chart-data/total-growth-bar-chart";
+import chartData from './chart-data/total-growth-bar-chart';
 
 const status = [
   {
-    value: "today",
-    label: "Today",
+    value: 'today',
+    label: 'Today',
   },
   {
-    value: "month",
-    label: "This Month",
+    value: 'month',
+    label: 'This Month',
   },
   {
-    value: "year",
-    label: "This Year",
+    value: 'year',
+    label: 'This Year',
   },
 ];
 
-// ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
+// ===========|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||========== //
 
-const TotalGrowthBarChart = ({ isLoading }) => {
-  const [value, setValue] = useState("today");
+function TotalGrowthBarChart({ isLoading }) {
+  const [value, setValue] = useState('today');
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
 
@@ -86,7 +86,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         borderColor: grey200,
       },
       tooltip: {
-        theme: "light",
+        theme: 'light',
       },
       legend: {
         labels: {
@@ -97,7 +97,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
 
     // do not load chart when loading
     if (!isLoading) {
-      ApexCharts.exec(`bar-chart`, "updateOptions", newChartData);
+      ApexCharts.exec(`bar-chart`, 'updateOptions', newChartData);
     }
   }, [
     navType,
@@ -148,6 +148,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
               </Grid>
             </Grid>
             <Grid item xs={12}>
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Chart {...chartData} />
             </Grid>
           </Grid>
@@ -155,10 +156,10 @@ const TotalGrowthBarChart = ({ isLoading }) => {
       )}
     </>
   );
-};
+}
 
 TotalGrowthBarChart.propTypes = {
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default TotalGrowthBarChart;

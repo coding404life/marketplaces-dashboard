@@ -1,8 +1,8 @@
 // project imports
-import config from "config";
+import config from '../config';
 
 // action - state management
-import * as actionTypes from "./actions";
+import * as actionTypes from './actions';
 
 export const initialState = {
   isOpen: [], // for active default menu
@@ -11,8 +11,9 @@ export const initialState = {
   opened: true,
 };
 
-// ==============================|| CUSTOMIZATION REDUCER ||============================== //
+// ========|| CUSTOMIZATION REDUCER ||=========== //
 
+// eslint-disable-next-line default-param-last
 const customizationReducer = (state = initialState, action) => {
   let id;
   switch (action.type) {

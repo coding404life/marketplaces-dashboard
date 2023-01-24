@@ -12,7 +12,7 @@ import themes from './themes';
 // project imports
 import NavigationScroll from './layout/NavigationScroll';
 
-// ==============================|| APP ||============================== //
+// ===================|| APP ||=================== //
 
 function App() {
   const customization = useSelector((state) => state.customization);

@@ -1,89 +1,61 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
 // project imports
-import MainLayout from "layout/MainLayout";
-import Loadable from "ui-component/Loadable";
+import MainLayout from '../layout/MainLayout';
+import Loadable from '../ui-component/Loadable';
 
 // dashboard routing
-const DashboardDefault = Loadable(lazy(() => import("views/dashboard/Default")));
+const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default')));
 
-// utilities routing
-const UtilsTypography = Loadable(lazy(() => import("views/utilities/Typography")));
-const UtilsColor = Loadable(lazy(() => import("views/utilities/Color")));
-const UtilsShadow = Loadable(lazy(() => import("views/utilities/Shadow")));
-const UtilsMaterialIcons = Loadable(lazy(() => import("views/utilities/MaterialIcons")));
-const UtilsTablerIcons = Loadable(lazy(() => import("views/utilities/TablerIcons")));
+// Marketplace routes
+const MarketPlace = Loadable(lazy(() => import('../views/pages/marketplace/MarketPlace')));
+const MarketPlaceDetails = Loadable(lazy(() => import('../views/pages/marketplace/MarketPlaceDetails')));
+const AddMarketPlace = Loadable(lazy(() => import('../views/pages/marketplace/AddMarketPlace')));
 
-// sample page routing
-const SamplePage = Loadable(lazy(() => import("views/sample-page")));
+// Merchant routes
+const Merchant = Loadable(lazy(() => import('../views/pages/merchant/Merchant')));
+// Customer routes
+const Customer = Loadable(lazy(() => import('../views/pages/customer/Customer')));
 
-// ==============================|| MAIN ROUTING ||============================== //
+// ================|| MAIN ROUTING ||================== //
 
 const MainRoutes = {
-  path: "/",
+  path: '/',
   element: <MainLayout />,
   children: [
     {
-      path: "/",
+      path: '/',
       element: <DashboardDefault />,
     },
     {
-      path: "dashboard",
+      path: 'dashboard',
+      element: <DashboardDefault />,
+    },
+
+    {
+      path: 'marketPlace',
+      element: <MarketPlace />,
+    },
+    {
+      path: 'marketPlace',
       children: [
         {
-          path: "default",
-          element: <DashboardDefault />,
+          path: 'addmarketplace',
+          element: <AddMarketPlace />,
+        },
+        {
+          path: ':marketplaceID',
+          element: <MarketPlaceDetails />,
         },
       ],
     },
     {
-      path: "utils",
-      children: [
-        {
-          path: "util-typography",
-          element: <UtilsTypography />,
-        },
-      ],
+      path: 'merchant',
+      element: <Merchant />,
     },
     {
-      path: "utils",
-      children: [
-        {
-          path: "util-color",
-          element: <UtilsColor />,
-        },
-      ],
-    },
-    {
-      path: "utils",
-      children: [
-        {
-          path: "util-shadow",
-          element: <UtilsShadow />,
-        },
-      ],
-    },
-    {
-      path: "icons",
-      children: [
-        {
-          path: "tabler-icons",
-          element: <UtilsTablerIcons />,
-        },
-      ],
-    },
-    {
-      path: "icons",
-      children: [
-        {
-          path: "material-icons",
-          element: <UtilsMaterialIcons />,
-        },
-      ],
-    },
-    {
-      path: "sample-page",
-      element: <SamplePage />,
+      path: 'customer',
+      element: <Customer />,
     },
   ],
 };

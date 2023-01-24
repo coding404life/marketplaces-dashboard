@@ -1,5 +1,13 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from "@tabler/icons";
+import {
+  IconTypography,
+  IconPalette,
+  IconShadow,
+  IconWindmill,
+  IconBuildingStore,
+  IconBuildingWarehouse,
+  IconUser,
+} from '@tabler/icons';
 
 // constant
 const icons = {
@@ -7,60 +15,41 @@ const icons = {
   IconPalette,
   IconShadow,
   IconWindmill,
+  IconBuildingStore,
+  IconBuildingWarehouse,
+  IconUser,
 };
 
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
+// ============|| UTILITIES MENU ITEMS ||================== //
 
 const utilities = {
-  id: "utilities",
-  title: "Utilities",
-  type: "group",
+  id: 'utilities',
+  title: 'Marketplace',
+  type: 'group',
   children: [
     {
-      id: "util-typography",
-      title: "Typography",
-      type: "item",
-      url: "/utils/util-typography",
-      icon: icons.IconTypography,
+      id: 'marketplace',
+      title: 'MarketPlace',
+      type: 'item',
+      url: '/marketplace',
+      icon: icons.IconBuildingStore,
       breadcrumbs: false,
     },
     {
-      id: "util-color",
-      title: "Color",
-      type: "item",
-      url: "/utils/util-color",
-      icon: icons.IconPalette,
+      id: 'merchant',
+      title: 'Merchant',
+      type: 'item',
+      url: '/merchant',
+      icon: icons.IconBuildingWarehouse,
       breadcrumbs: false,
     },
     {
-      id: "util-shadow",
-      title: "Shadow",
-      type: "item",
-      url: "/utils/util-shadow",
-      icon: icons.IconShadow,
+      id: 'customer',
+      title: 'Customer',
+      type: 'item',
+      url: '/customer',
+      icon: icons.IconUser,
       breadcrumbs: false,
-    },
-    {
-      id: "icons",
-      title: "Icons",
-      type: "collapse",
-      icon: icons.IconWindmill,
-      children: [
-        {
-          id: "tabler-icons",
-          title: "Tabler Icons",
-          type: "item",
-          url: "/icons/tabler-icons",
-          breadcrumbs: false,
-        },
-        {
-          id: "material-icons",
-          title: "Material Icons",
-          type: "item",
-          url: "/icons/material-icons",
-          breadcrumbs: false,
-        },
-      ],
     },
   ],
 };

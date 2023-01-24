@@ -1,18 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // material-ui
-import { ButtonBase } from "@mui/material";
+import { ButtonBase } from '@mui/material';
 
 // project imports
-import config from "config";
-import Logo from "ui-component/Logo";
+import Logo from '../../../ui-component/Logo';
+import config from '../../../config';
 
 // ==============================|| MAIN LOGO ||============================== //
 
-const LogoSection = () => (
-  <ButtonBase disableRipple component={Link} to={config.defaultPath}>
-    <Logo />
-  </ButtonBase>
-);
+function LogoSection() {
+  return (
+    <ButtonBase disableRipple component={Link} to={config.defaultPath}>
+      <Logo />
+    </ButtonBase>
+  );
+}
 
 export default LogoSection;

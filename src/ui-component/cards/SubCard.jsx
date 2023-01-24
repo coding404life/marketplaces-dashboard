@@ -1,12 +1,13 @@
-import PropTypes from "prop-types";
-import { forwardRef } from "react";
+import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
 
 // material-ui
-import { useTheme } from "@mui/material/styles";
-import { Card, CardContent, CardHeader, Divider, Typography } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/material';
 
 // ==============================|| CUSTOM SUB CARD ||============================== //
 
+// eslint-disable-next-line react/display-name
 const SubCard = forwardRef(
   ({ children, content, contentClass, darkTitle, secondary, sx = {}, contentSX = {}, title, ...others }, ref) => {
     const theme = useTheme();
@@ -15,13 +16,14 @@ const SubCard = forwardRef(
       <Card
         ref={ref}
         sx={{
-          border: "1px solid",
+          border: '1px solid',
           borderColor: theme.palette.primary.light,
-          ":hover": {
-            boxShadow: "0 2px 14px 0 rgb(32 40 45 / 8%)",
+          ':hover': {
+            boxShadow: '0 2px 14px 0 rgb(32 40 45 / 8%)',
           },
           ...sx,
         }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...others}
       >
         {/* card header and action */}
@@ -44,25 +46,27 @@ const SubCard = forwardRef(
 
         {/* card content */}
         {content && (
-          <CardContent sx={{ p: 2.5, ...contentSX }} className={contentClass || ""}>
+          <CardContent sx={{ p: 2.5, ...contentSX }} className={contentClass || ''}>
             {children}
           </CardContent>
         )}
         {!content && children}
       </Card>
     );
-  }
+  },
 );
 
 SubCard.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   content: PropTypes.bool,
-  contentClass: PropTypes.string,
-  darkTitle: PropTypes.bool,
-  secondary: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]),
-  sx: PropTypes.object,
-  contentSX: PropTypes.object,
-  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]),
+  contentClass: PropTypes.string.isRequired,
+  darkTitle: PropTypes.bool.isRequired,
+  secondary: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  sx: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  contentSX: PropTypes.object.isRequired,
+  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]).isRequired,
 };
 
 SubCard.defaultProps = {

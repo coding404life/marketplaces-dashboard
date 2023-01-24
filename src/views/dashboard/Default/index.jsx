@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 
 // project imports
-import { gridSpacing } from 'store/constant';
+import { gridSpacing } from '../../../store/constant';
 import EarningCard from './EarningCard';
 import PopularCard from './PopularCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
