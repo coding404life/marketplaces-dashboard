@@ -1,3 +1,4 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 // third party
@@ -20,7 +21,9 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(
   <Provider store={store}>
     <BrowserRouter basename={config.basename}>
-      <App />
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </BrowserRouter>
   </Provider>,
 );

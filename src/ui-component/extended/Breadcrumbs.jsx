@@ -190,17 +190,17 @@ function Breadcrumbs({
 }
 
 Breadcrumbs.propTypes = {
-  card: PropTypes.bool.isRequired,
-  divider: PropTypes.bool.isRequired,
-  icon: PropTypes.bool.isRequired,
-  icons: PropTypes.bool.isRequired,
-  maxItems: PropTypes.number.isRequired,
+  card: PropTypes.bool,
+  divider: PropTypes.bool,
+  icon: PropTypes.bool,
+  icons: PropTypes.bool,
+  maxItems: PropTypes.number,
   // eslint-disable-next-line react/forbid-prop-types
-  navigation: PropTypes.object.isRequired,
-  rightAlign: PropTypes.bool.isRequired,
-  separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
-  title: PropTypes.bool.isRequired,
-  titleBottom: PropTypes.bool.isRequired,
+  navigation: PropTypes.object,
+  rightAlign: PropTypes.bool,
+  separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  title: PropTypes.bool,
+  titleBottom: PropTypes.bool,
 };
 
 export default Breadcrumbs;

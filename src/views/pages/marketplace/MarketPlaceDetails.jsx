@@ -2,55 +2,75 @@ import { useParams } from 'react-router';
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { IconCoffee } from '@tabler/icons';
+import { useTheme } from '@mui/material/styles';
 
-import TransactionsTable from '../../../components/TransactionsTable';
+// assets
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
+
+import TransactionsTable from '../../../components/tables/marketplaceTables/TransactionsTable';
 import MainCard from '../../../ui-component/cards/MainCard';
+import TotalIncomeDarkCard from '../../dashboard/Default/TotalIncomeDarkCard';
 
 function MarketPlaceDetails() {
   const { marketplaceID } = useParams();
+  const theme = useTheme();
   return (
     <MainCard>
       <Grid container>
         <Grid item xs={12}>
           <Box display="flex" justifyContent="space-between">
-            <div>
-              <Box display="flex" alignItems="center">
-                <Typography marginBottom={0.5} marginRight={1} variant="body1" color="rebeccapurple">
+            <Box marginRight={5}>
+              <Box display="flex" alignItems="end">
+                <Typography marginRight={1} variant="h4" color="rebeccapurple" display="flex" alignItems="end">
                   <IconCoffee />
+                  <Box marginLeft={0.5}>MarketPlace Name:</Box>
                 </Typography>
 
                 <Typography variant="h4">{marketplaceID}</Typography>
               </Box>
+              <Box display="flex" mt={1} ml={3.5}>
+                <Typography variant="h4" color="rebeccapurple">
+                  Description:
+                </Typography>
+                <Typography variant="h4" marginLeft={0.5}>
+                  Amazing community
+                </Typography>
+              </Box>
+              <Box display="flex" mt={1} ml={3.5}>
+                <Typography variant="h4" color="rebeccapurple">
+                  Domain:-
+                </Typography>
+                <Typography
+                  variant="h4"
+                  marginLeft={0.5}
+                  href="https://dev.hawker.social/RiteshThummar"
+                  component="a"
+                  target="_blank"
+                >
+                  {marketplaceID}
+                </Typography>
+              </Box>
+            </Box>
 
-              <Typography variant="body1" color="GrayText">
-                Description of marketplace
-              </Typography>
-              <Typography variant="body1" color="GrayText">
-                Domain
-              </Typography>
-            </div>
-
-            <div>
-              <Typography variant="h4">Stats</Typography>
-              <Typography variant="body1" color="black" display="flex">
-                Total no of transactions:
-                <Typography marginLeft={0.5} color="purple">
-                  20412
-                </Typography>
-              </Typography>
-              <Typography variant="body1" color="black" display="flex">
-                Total revanue:
-                <Typography marginLeft={0.5} color="purple">
-                  $3000
-                </Typography>
-              </Typography>
-              <Typography variant="body1" color="black" display="flex">
-                Total no of merchants:
-                <Typography marginLeft={0.5} color="purple">
-                  51
-                </Typography>
-              </Typography>
-            </div>
+            <Box display="flex">
+              <TotalIncomeDarkCard
+                title="Total no of transactions"
+                message="20412"
+                OptionIcon={<AutorenewIcon />}
+                sx={{ backgroundColor: theme.palette.primary.dark }}
+                avatarSX={{ backgroundColor: theme.palette.primary[800] }}
+              />
+              <TotalIncomeDarkCard
+                title="Total revanue"
+                message="$3000"
+                OptionIcon={<AttachMoneyIcon />}
+                sx={{ backgroundColor: theme.palette.success.dark }}
+                avatarSX={{ backgroundColor: theme.palette.success.main }}
+              />
+              <TotalIncomeDarkCard title="Total no of merchants" message="51" OptionIcon={<Diversity1Icon />} />
+            </Box>
           </Box>
         </Grid>
 

@@ -1,21 +1,21 @@
 import { Grid } from '@mui/material';
 
 // project imports
-import MerchantTable from '../../../components/tables/merchantTables/MerchantTable';
+import ProductTable from '../../../components/tables/product/ProductTable';
 import MainCard from '../../../ui-component/cards/MainCard';
 
 // =================|| TYPOGRAPHY ||=================== //
 
-function Merchant() {
+function Product() {
   return (
-    <MainCard title="Merchant">
+    <MainCard title="Product">
       <Grid container>
         <Grid item xs={12}>
-          <MerchantTable />
+          <ProductTable />
         </Grid>
       </Grid>
     </MainCard>
   );
 }
 
-export default Merchant;
+export default Product;

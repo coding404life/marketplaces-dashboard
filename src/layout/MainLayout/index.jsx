@@ -16,7 +16,6 @@ import { SET_MENU } from '../../store/actions';
 import Breadcrumbs from '../../ui-component/extended/Breadcrumbs';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Customization from '../Customization';
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
@@ -108,7 +107,6 @@ function MainLayout() {
         <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
         <Outlet />
       </Main>
-      <Customization />
     </Box>
   );
 }

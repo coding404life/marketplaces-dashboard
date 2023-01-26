@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // project imports
 import MainCard from '../../../ui-component/cards/MainCard';
-import TableData from '../../../components/TableData';
+import TableData from '../../../components/tables/marketplaceTables/TableData';
 
 function MarketPlace() {
   return (

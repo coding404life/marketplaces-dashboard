@@ -8,25 +8,29 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Link } from 'react-router-dom';
+
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 
-function createData(name, calories, fat, carbs) {
+function createData(name, subscriptionPlan) {
   return {
     name,
-    calories,
-    fat,
-    carbs,
+    totalPayment: Math.floor(Math.random() * 1000),
+    monthlyRevenue: Math.floor(Math.random() * 1000),
+    subscriptionPlan,
+    transactions: Math.floor(Math.random() * 100),
   };
 }
 
 // marketplace title, discription, domain, Logo
 const rows = [
-  createData('Hawker', 'Discription', 'Domain', 'Logo'),
-  createData('Checkya', 'Discription1', 'Domain', 'Logo'),
-  createData('DonorBox', 'Discription2', 'Domain', 'Logo'),
+  createData('Aidar', '$10/mo, $100/yearly'),
+  createData('Charles', '$15/mo, $100/yearly'),
+  createData('Ritesh', '$12/mo, $100/yearly'),
+  createData('Yahya', '$11/mo, $100/yearly'),
+  createData('Joe', '$13/mo, $100/yearly'),
+  createData('Paul', '$14/mo, $100/yearly'),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -67,25 +71,31 @@ const headCells = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Marketplace title',
+    label: 'Name',
   },
   {
-    id: 'calories',
+    id: 'totalPayment',
     numeric: false,
     disablePadding: false,
-    label: 'Description',
+    label: 'Total Payment',
   },
   {
-    id: 'fat',
+    id: 'monthlyRevenue',
     numeric: false,
     disablePadding: false,
-    label: 'Domain',
+    label: 'Monthly Revenue',
   },
   {
-    id: 'carbs',
+    id: 'subscriptionPlan',
     numeric: true,
     disablePadding: false,
-    label: 'Logo',
+    label: 'Subscription Plan',
+  },
+  {
+    id: 'transactions',
+    numeric: true,
+    disablePadding: false,
+    label: 'Transactions',
   },
 ];
 
@@ -129,9 +139,10 @@ EnhancedTableHead.propTypes = {
   orderBy: PropTypes.string.isRequired,
   onRequestSort: PropTypes.func.isRequired,
 };
-export default function TableData() {
+
+export default function MarchantDetailsTable() {
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState('amount');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -181,11 +192,12 @@ export default function TableData() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row) => (
-                  <TableRow hover role="cell" tabIndex={-1} key={row.name} component={Link} to={row.name}>
+                  <TableRow hover role="cell" tabIndex={-1} key={row.transactions}>
                     <TableCell padding="none">{row.name}</TableCell>
-                    <TableCell align="left">{row.calories}</TableCell>
-                    <TableCell align="left">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
+                    <TableCell align="left">{row.totalPayment}</TableCell>
+                    <TableCell align="left">{row.monthlyRevenue}</TableCell>
+                    <TableCell align="right">{row.subscriptionPlan}</TableCell>
+                    <TableCell align="right">{row.transactions}</TableCell>
                   </TableRow>
                 ))}
               {emptyRows > 0 && (

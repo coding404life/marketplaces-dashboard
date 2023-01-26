@@ -7,6 +7,11 @@ import {
   IconBuildingStore,
   IconBuildingWarehouse,
   IconUser,
+  IconTag,
+  IconBrandProducthunt,
+  IconCalendarEvent,
+  IconTransform,
+  IconShoppingCart,
 } from '@tabler/icons';
 
 // constant
@@ -18,6 +23,11 @@ const icons = {
   IconBuildingStore,
   IconBuildingWarehouse,
   IconUser,
+  IconTag,
+  IconBrandProducthunt,
+  IconCalendarEvent,
+  IconTransform,
+  IconShoppingCart,
 };
 
 // ============|| UTILITIES MENU ITEMS ||================== //
@@ -49,6 +59,46 @@ const utilities = {
       type: 'item',
       url: '/customer',
       icon: icons.IconUser,
+      breadcrumbs: false,
+    },
+    {
+      id: 'events',
+      title: 'Events',
+      type: 'item',
+      url: '/events',
+      icon: icons.IconCalendarEvent,
+      breadcrumbs: false,
+    },
+    {
+      id: 'product',
+      title: 'Product',
+      type: 'item',
+      url: '/product',
+      icon: icons.IconBrandProducthunt,
+      breadcrumbs: false,
+    },
+    {
+      id: 'purchases',
+      title: 'Purchases',
+      type: 'item',
+      url: '/purchases',
+      icon: icons.IconShoppingCart,
+      breadcrumbs: false,
+    },
+    {
+      id: 'prices',
+      title: 'Prices',
+      type: 'item',
+      url: '/prices',
+      icon: icons.IconTag,
+      breadcrumbs: false,
+    },
+    {
+      id: 'transactions',
+      title: 'Transactions',
+      type: 'item',
+      url: '/transactions',
+      icon: icons.IconTransform,
       breadcrumbs: false,
     },
   ],

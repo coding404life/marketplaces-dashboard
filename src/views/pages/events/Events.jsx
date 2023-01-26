@@ -1,19 +1,21 @@
 import { Grid } from '@mui/material';
 
 // project imports
-import CustomersTable from '../../../components/tables/customersTables/CustomersTable';
+import EventsTable from '../../../components/tables/events/EventsTable';
 import MainCard from '../../../ui-component/cards/MainCard';
 
-function Customer() {
+// =================|| TYPOGRAPHY ||=================== //
+
+function Events() {
   return (
-    <MainCard title="Customer">
+    <MainCard title="Events">
       <Grid container>
         <Grid item xs={12}>
-          <CustomersTable />
+          <EventsTable />
         </Grid>
       </Grid>
     </MainCard>
   );
 }
 
-export default Customer;
+export default Events;

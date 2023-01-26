@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 // material-ui
 import { Grid } from '@mui/material';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 
 // project imports
 import { gridSpacing } from '../../../store/constant';
@@ -33,7 +34,13 @@ function Dashboard() {
           <Grid item lg={4} md={12} sm={12} xs={12}>
             <Grid container spacing={gridSpacing}>
               <Grid item sm={6} xs={12} md={6} lg={12}>
-                <TotalIncomeDarkCard isLoading={isLoading} />
+                <TotalIncomeDarkCard
+                  title="Total no of transactions"
+                  message="20412"
+                  addIcon
+                  OptionIcon={<TableChartOutlinedIcon />}
+                  isLoading={isLoading}
+                />
               </Grid>
               <Grid item sm={6} xs={12} md={6} lg={12}>
                 <TotalIncomeLightCard isLoading={isLoading} />
